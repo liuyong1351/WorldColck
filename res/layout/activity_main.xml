@@ -1,0 +1,208 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <com.example.worldcolck.TimeView
+                    android:id="@+id/tabTime"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <!--这里引用的是系统自带的一个外观，？表示系统是否有这种外观，否则使用默认的外观  -->
+					<TextView
+					    android:id="@+id/tvTime"
+					    android:textAppearance="?android:attr/textAppearanceLarge"  
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:gravity="center"
+					    />
+                </com.example.worldcolck.TimeView>
+
+                <com.example.worldcolck.AlarmView
+                    android:id="@+id/tabAlarm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" 
+                    android:orientation="vertical">
+					<ListView 
+					     android:id="@+id/lvAlarmlist"
+					    android:layout_width="fill_parent"
+					    android:layout_weight="1"
+					    android:layout_height="0dp">
+				   </ListView>
+				   <Button
+				        android:id="@+id/btnAddAlram"
+				       android:text="@string/add_alram" 
+				       android:layout_width="fill_parent"
+				       android:layout_height="wrap_content"/>  
+					
+                </com.example.worldcolck.AlarmView>
+
+                <com.example.worldcolck.TimerView
+                    android:id="@+id/tabTimer"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+				   <LinearLayout 
+				       android:orientation="horizontal"
+				       android:layout_width="match_parent"
+				       android:layout_height="0dp"
+				       android:layout_weight="1">
+				       <EditText 
+				           android:id="@+id/etHour"
+				           android:textAppearance="?android:attr/textAppearanceLarge"
+				           android:layout_width="0dp"
+				           android:layout_height="wrap_content"
+				           android:inputType="number"
+				           android:singleLine="true"
+				           android:layout_weight="1"/>
+				       <TextView 
+				           android:layout_width="wrap_content"
+				           android:layout_height="wrap_content"
+				           android:textAppearance="?android:attr/textAppearanceLarge"
+				           android:text=":"/>
+				        <EditText 
+				            android:id="@+id/etMinute"
+				            android:textAppearance="?android:attr/textAppearanceLarge"
+				           android:layout_width="0dp"
+				           android:layout_height="wrap_content"
+				            android:inputType="number"
+				            android:singleLine="true"
+				           android:layout_weight="1"/>
+				        <TextView 
+				           android:layout_width="wrap_content"
+				           android:layout_height="wrap_content"
+				           android:textAppearance="?android:attr/textAppearanceLarge"
+				           android:text=":"/>
+				         <EditText 
+				             android:id="@+id/etSecond"
+				             android:textAppearance="?android:attr/textAppearanceLarge"
+				           android:layout_width="0dp"
+				           android:layout_height="wrap_content"
+				            android:inputType="number"
+				            android:singleLine="true"
+				           android:layout_weight="1"/>
+				   </LinearLayout>
+				   <LinearLayout
+				       android:id="@+id/btnGroup"
+				       android:orientation="horizontal" 
+				       android:layout_width="fill_parent"
+				       android:layout_height="wrap_content">
+				       <Button
+				           android:id="@+id/btnStart"
+				           android:text="@string/start" 
+				           android:layout_width="0dp"
+				           android:layout_height="wrap_content"
+				           android:layout_weight="1"/>
+				        <Button
+				           android:id="@+id/btnPause"
+				           android:text="@string/pause" 
+				           android:layout_width="0dp"
+				           android:layout_height="wrap_content"
+				           android:layout_weight="1"/>
+				         <Button
+				           android:id="@+id/btnResume"
+				           android:text="@string/resume" 
+				           android:layout_width="0dp"
+				           android:layout_height="wrap_content"
+				           android:layout_weight="1"/>
+				          <Button
+				           android:id="@+id/btnReset"
+				           android:text="@string/reset" 
+				           android:layout_width="0dp"
+				           android:layout_height="wrap_content"
+				           android:layout_weight="1"/>
+				   </LinearLayout>
+                </com.example.worldcolck.TimerView>
+                <com.example.worldcolck.StopWatchView
+                    android:id="@+id/tabStopWatch"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+				   <LinearLayout 
+				       android:orientation="horizontal"
+				       android:layout_width="fill_parent" 
+				       android:layout_height="wrap_content">
+				       <TextView 
+				           android:id="@+id/watchHour"
+				           android:layout_width="0dp"
+				           android:layout_weight="1"
+				           android:layout_height="wrap_content"
+				           android:textAppearance="?android:attr/textAppearanceLarge"/>
+				        <TextView 
+				           android:layout_width="wrap_content"
+				           android:layout_height="wrap_content"
+				           android:text=":"
+				           android:textAppearance="?android:attr/textAppearanceLarge"/>
+				         <TextView 
+				           android:id="@+id/watchMin"
+				           android:layout_width="0dp"
+				           android:layout_weight="1"
+				           android:layout_height="wrap_content"
+				           android:textAppearance="?android:attr/textAppearanceLarge"/>
+				          <TextView 
+				           android:layout_width="wrap_content"
+				           android:layout_height="wrap_content"
+				           android:text=":"
+				           android:textAppearance="?android:attr/textAppearanceLarge"/>
+				           <TextView 
+				           android:id="@+id/watchSec"
+				           android:layout_width="0dp"
+				           android:layout_weight="1"
+				           android:layout_height="wrap_content"
+				           android:textAppearance="?android:attr/textAppearanceLarge"/>
+				            <TextView 
+				           android:layout_width="wrap_content"
+				           android:layout_height="wrap_content"
+				           android:text="."
+				           android:textAppearance="?android:attr/textAppearanceLarge"/>
+				          <TextView 
+				           android:id="@+id/watchMSec"
+				           android:layout_width="0dp"
+				           android:layout_weight="1"
+				           android:layout_height="wrap_content"
+				           android:textAppearance="?android:attr/textAppearanceLarge"/>
+				        </LinearLayout>
+				          <ListView
+				              android:id="@+id/lvWatch" 
+				              android:layout_width="fill_parent"
+				              android:layout_height="0dp"
+				              android:layout_weight="1">
+				          </ListView>
+				          <LinearLayout
+				               android:layout_width="fill_parent"
+				               android:layout_height="wrap_content"
+				               android:orientation="horizontal">
+				              <Button android:id="@+id/btnWStart" android:text="@string/start" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+				              <Button android:id="@+id/btnWPause" android:text="@string/pause" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+				              <Button android:id="@+id/btnWResume" android:text="@string/resume" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+				              <Button android:id="@+id/btnWLop" android:text="@string/lop" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+				              <Button android:id="@+id/btnWReset" android:text="@string/reset" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+				          </LinearLayout>
+                </com.example.worldcolck.StopWatchView>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>
